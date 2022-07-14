@@ -23,14 +23,14 @@ SPVM::Digest::SHA - SPVM extension for SHA-1/224/256/384/512
   # Object-oriented
   my $sha = Digest::SHA->new($alg);
   
-  $sha->add($data);   # feed data into stream
+  $sha->add($data);
   
   my $sha_copy = $sha->clone;
   
   my $digest = $sha->digest;
   my $digest = $sha->hexdigest;
   my $digest = $sha->b64digest;
-  
+
 =head1 Description
 
 C<Digest::SHA> is a complete implementation of the NIST Secure Hash Standard.
@@ -48,14 +48,22 @@ L<SPVM> is yet experimental status.
 
 =head1 Field Methods
 
-=head2 
+=head2 hashsize
 
   method hashsize : int ()
 
-=head2 
+Returns the number of digest bits for this object.  The values are
+160, 224, 256, 384, 512, 224, and 256 for SHA-1, SHA-224, SHA-256,
+SHA-384, SHA-512, SHA-512/224 and SHA-512/256, respectively.
+
+=head2 algorithm
 
   method algorithm : int ()
-  
+
+Returns the digest algorithm for this object.  The values are 1,
+224, 256, 384, 512, 512224, and 512256 for SHA-1, SHA-224, SHA-256,
+SHA-384, SHA-512, SHA-512/224, and SHA-512/256, respectively.
+
 =head1 Class Methods
 
 =head2 sha1
@@ -76,7 +84,7 @@ Receive the input date and return its SHA-1 digest encoded as a hexadecimal stri
 
 Receive the input date and return its SHA-1 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 sha224
 
@@ -96,7 +104,7 @@ Receive the input date and return its SHA-224 digest encoded as a hexadecimal st
 
 Receive the input date and return its SHA-224 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 sha256
 
@@ -116,7 +124,7 @@ Receive the input date and return its SHA-256 digest encoded as a hexadecimal st
 
 Receive the input date and return its SHA-256 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 sha384
 
@@ -136,7 +144,7 @@ Receive the input date and return its SHA-384 digest encoded as a hexadecimal st
 
 Receive the input date and return its SHA-384 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 sha512
 
@@ -156,7 +164,7 @@ Receive the input date and return its SHA-512 digest encoded as a hexadecimal st
 
 Receive the input date and return its SHA-512 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 sha512224
 
@@ -176,7 +184,7 @@ Receive the input date and return its SHA-512/224 digest encoded as a hexadecima
 
 Receive the input date and return its SHA-512/224 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 sha512256
 
@@ -196,7 +204,7 @@ Receive the input date and return its SHA-512/256 digest encoded as a hexadecima
 
 Receive the input date and return its SHA-512/256 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha1
 
@@ -216,7 +224,7 @@ Receive the input date and return its HMAC-SHA-1 digest encoded as a hexadecimal
 
 Receive the input date and return its HMAC-SHA-1 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha224
 
@@ -236,7 +244,7 @@ Receive the input date and return its HMAC-SHA-224 digest encoded as a hexadecim
 
 Receive the input date and return its HMAC-SHA-224 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha256
 
@@ -256,7 +264,7 @@ Receive the input date and return its HMAC-SHA-256 digest encoded as a hexadecim
 
 Receive the input date and return its HMAC-SHA-256 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha384
 
@@ -276,7 +284,7 @@ Receive the input date and return its HMAC-SHA-384 digest encoded as a hexadecim
 
 Receive the input date and return its HMAC-SHA-384 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha512
 
@@ -296,7 +304,7 @@ Receive the input date and return its HMAC-SHA-512 digest encoded as a hexadecim
 
 Receive the input date and return its HMAC-SHA-512 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha512224
 
@@ -316,7 +324,7 @@ Receive the input date and return its HMAC-SHA-512/224 digest encoded as a hexad
 
 Receive the input date and return its HMAC-SHA-512/224 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha512256
 
@@ -336,7 +344,7 @@ Receive the input date and return its HMAC-SHA-512/256 digest encoded as a hexad
 
 Receive the input date and return its HMAC-SHA-512/256 digest encoded as a Base64 string.
 
-See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+See L<Digest::SHA/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 new
 
@@ -373,7 +381,7 @@ Returns the digest encoded as a binary string.
 
 Returns the digest encoded as a hexadecimal string.
 
-=head2 
+=head2 b64digest
 
   method b64digest : string ()
 
