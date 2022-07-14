@@ -202,85 +202,141 @@ See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
   static method hmac_sha1 : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-1 digest encoded as a binary string.
+
 =head2 hmac_sha1_hex
 
   static method hmac_sha1_hex : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-1 digest encoded as a hexadecimal string.
 
 =head2 hmac_sha1_base64
 
   static method hmac_sha1_base64 : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-1 digest encoded as a Base64 string.
+
+See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+
 =head2 hmac_sha224
 
   static method hmac_sha224 : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-224 digest encoded as a binary string.
 
 =head2 hmac_sha224_hex
 
   static method hmac_sha224_hex : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-224 digest encoded as a hexadecimal string.
+
 =head2 hmac_sha224_base64
 
   static method hmac_sha224_base64 : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-224 digest encoded as a Base64 string.
+
+See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha256
 
   static method hmac_sha256 : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-256 digest encoded as a binary string.
+
 =head2 hmac_sha256_hex
 
   static method hmac_sha256_hex : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-256 digest encoded as a hexadecimal string.
 
 =head2 hmac_sha256_base64
 
   static method hmac_sha256_base64 : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-256 digest encoded as a Base64 string.
+
+See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+
 =head2 hmac_sha384
 
   static method hmac_sha384 : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-384 digest encoded as a binary string.
 
 =head2 hmac_sha384_hex
 
   static method hmac_sha384_hex : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-384 digest encoded as a hexadecimal string.
+
 =head2 hmac_sha384_base64
 
   static method hmac_sha384_base64 : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-384 digest encoded as a Base64 string.
+
+See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha512
 
   static method hmac_sha512 : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-512 digest encoded as a binary string.
+
 =head2 hmac_sha512_hex
 
   static method hmac_sha512_hex : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-512 digest encoded as a hexadecimal string.
 
 =head2 hmac_sha512_base64
 
   static method hmac_sha512_base64 : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-512 digest encoded as a Base64 string.
+
+See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
+
 =head2 hmac_sha512224
 
   static method hmac_sha512224 : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-512/224 digest encoded as a binary string.
 
 =head2 hmac_sha512224_hex
 
   static method hmac_sha512224_hex : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-512/224 digest encoded as a hexadecimal string.
+
 =head2 hmac_sha512224_base64
 
   static method hmac_sha512224_base64 : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-512/224 digest encoded as a Base64 string.
+
+See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 hmac_sha512256
 
   static method hmac_sha512256 : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-512/256 digest encoded as a binary string.
+
 =head2 hmac_sha512256_hex
 
   static method hmac_sha512256_hex : string ($data : string, $key : string)
 
+Receive the input date and return its HMAC-SHA-512/256 digest encoded as a hexadecimal string.
+
 =head2 hmac_sha512256_base64
 
   static method hmac_sha512256_base64 : string ($data : string, $key : string)
+
+Receive the input date and return its HMAC-SHA-512/256 digest encoded as a Base64 string.
+
+See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
 
 =head2 new
 
