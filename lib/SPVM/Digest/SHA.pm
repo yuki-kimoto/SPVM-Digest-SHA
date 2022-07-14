@@ -34,11 +34,11 @@ C<Digest::SHA> is a L<SPVM> module.
 
 =head1 Author
 
-Yuki Kimoto C<kimoto.yuki@gmail.com>
+[--user-name] C<[--user-email]>
 
 =head1 Copyright & License
 
-Copyright 2022-2022 Yuki Kimoto, all rights reserved.
+Copyright 2022-2022 [--user-name], all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
