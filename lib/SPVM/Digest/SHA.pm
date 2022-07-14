@@ -341,28 +341,49 @@ See L<Digest::SHA|/"PADDING OF BASE64 DIGESTS"> for details about padding.
 =head2 new
 
   static method new : Digest::SHA ($alg : int)
-  
+
+Returns a new C<Digest::SHA> object.  Allowed values for I<$alg> are 1,
+224, 256, 384, 512, 512224, or 512256.  It's also possible to use
+common string representations of the algorithm (e.g. "sha256",
+"SHA-384").  If the argument is missing, SHA-1 will be used by
+default.
+
 =head1 Instance Methods
 
 =head2 add
 
   method add : void ($date : string)
 
+Use the input data to
+update the current digest state.  In other words, the following
+statements have the same effect:
+
+  $sha->add("a"); $sha->add("b"); $sha->add("c");
+  $sha->add("abc");
+
 =head2 digest
 
   method digest : string ()
+
+Returns the digest encoded as a binary string.
 
 =head2 b64digest
 
   method hexdigest : string ()
 
+Returns the digest encoded as a hexadecimal string.
+
 =head2 
 
   method b64digest : string ()
 
+Returns the digest encoded as a Base64 string.
+
 =head2 
 
   method clone : Digest::SHA ()
+
+Returns a duplicate copy of the object.
 
 =head1 Repository
 
