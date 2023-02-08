@@ -41,10 +41,10 @@ WriteMakefile(
   },
   NORECURS => 1,
   CONFIGURE_REQUIRES => {
-    'SPVM'              => '0.9691',
+    %configure_and_runtime_requires,
   },
-  PREREQ_PM => {
-    
+  PREREQ_PM         => {
+    %configure_and_runtime_requires,
   },
   TEST_REQUIRES => {
     
