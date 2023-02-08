@@ -15,8 +15,8 @@
 #include <stddef.h>
 #include <string.h>
 #include <ctype.h>
-#include "sha.h"
-#include "sha64bit.h"
+#include "SPVM__Digest__SHA__sha.h"
+#include "SPVM__Digest__SHA__sha64bit.h"
 
 #define W32	SHA32			/* useful abbreviations */
 #define C32	SHA32_CONST
@@ -212,7 +212,7 @@ static void sha256(SHA *s, UCHR *block)		/* SHA-224/256 transform */
 	H[4] += e; H[5] += f; H[6] += g; H[7] += h;
 }
 
-#include "sha64bit.c"
+#include "SPVM__Digest__SHA__sha64bit.c"
 
 #define BITSET(s, pos)	s[(pos) >> 3] &  (UCHR)  (0x01 << (7 - (pos) % 8))
 #define SETBIT(s, pos)	s[(pos) >> 3] |= (UCHR)  (0x01 << (7 - (pos) % 8))
