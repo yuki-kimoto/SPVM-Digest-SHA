@@ -31,8 +31,8 @@ WriteMakefile(
     resources => {
       repository => {
         type => 'git',
-        url  => '',
-        web  => '',
+        url  => 'https://github.com/yuki-kimoto/SPVM-Digest-SHA.git',
+        web  => 'https://github.com/yuki-kimoto/SPVM-Digest-SHA',
       },
     },
     no_index => {
