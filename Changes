@@ -12,6 +12,8 @@
     * Added the URL of this repository.
   [Test Improvement]
     * Added Github Action workflows.
+  [Test Bug Fix]
+    * Fixed a test bug that test don't work well on Perl 5.8.
 0.04 2022-02-08
   [Prerequirement Changes]
     * SPVM 0.9691+ is needed.
