@@ -395,6 +395,10 @@ L<SPVM::Digest::SHA - Github|https://github.com/yuki-kimoto/SPVM-Digest-SHA>
 
 Yuki Kimoto C<kimoto.yuki@gmail.com>
 
+=head1 Contributors
+
+L<Yoshiyuki Itoh|https://github.com/YoshiyukiItoh>
+
 =head1 Copyright & License
 
 Copyright (c) 2023 Yuki Kimoto
