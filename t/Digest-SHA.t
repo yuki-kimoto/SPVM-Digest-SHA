@@ -34,6 +34,18 @@ my $start_memory_blocks_count = $api->get_memory_blocks_count();
     ok(SPVM::TestCase::Digest::SHA->sha224_hex);
     # sha224_base64
     ok(SPVM::TestCase::Digest::SHA->sha224_base64);
+    # sha256
+    ok(SPVM::TestCase::Digest::SHA->sha256);
+    # sha256_hex
+    ok(SPVM::TestCase::Digest::SHA->sha256_hex);
+    # sha256_base64
+    ok(SPVM::TestCase::Digest::SHA->sha256_base64);
+    # sha384
+    ok(SPVM::TestCase::Digest::SHA->sha384);
+    # sha384_hex
+    ok(SPVM::TestCase::Digest::SHA->sha384_hex);
+    # sha384_base64
+    ok(SPVM::TestCase::Digest::SHA->sha384_base64);
     # hmac_sha1
     ok(SPVM::TestCase::Digest::SHA->hmac_sha1);
     
