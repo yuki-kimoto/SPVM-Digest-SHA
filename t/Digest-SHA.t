@@ -46,8 +46,30 @@ my $start_memory_blocks_count = $api->get_memory_blocks_count();
     ok(SPVM::TestCase::Digest::SHA->sha384_hex);
     # sha384_base64
     ok(SPVM::TestCase::Digest::SHA->sha384_base64);
+    # sha512
+    ok(SPVM::TestCase::Digest::SHA->sha512);
+    # sha512_hex
+    ok(SPVM::TestCase::Digest::SHA->sha512_hex);
+    # sha512_base64
+    ok(SPVM::TestCase::Digest::SHA->sha512_base64);
+    # sha512224
+    ok(SPVM::TestCase::Digest::SHA->sha512224);
+    # sha512224_hex
+    ok(SPVM::TestCase::Digest::SHA->sha512224_hex);
+    # sha512224_base64
+    ok(SPVM::TestCase::Digest::SHA->sha512224_base64);
+    # sha512256
+    ok(SPVM::TestCase::Digest::SHA->sha512256);
+    # sha512256_hex
+    ok(SPVM::TestCase::Digest::SHA->sha512256_hex);
+    # sha512256_base64
+    ok(SPVM::TestCase::Digest::SHA->sha512256_base64);
     # hmac_sha1
     ok(SPVM::TestCase::Digest::SHA->hmac_sha1);
+    # hmac_sha1_hex
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha1_hex);
+    # hmac_sha1_base64
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha1_base64);
     
   }
 }
