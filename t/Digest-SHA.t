@@ -70,6 +70,30 @@ my $start_memory_blocks_count = $api->get_memory_blocks_count();
     ok(SPVM::TestCase::Digest::SHA->hmac_sha1_hex);
     # hmac_sha1_base64
     ok(SPVM::TestCase::Digest::SHA->hmac_sha1_base64);
+    # hmac_sha224
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha224);
+    # hmac_sha224_hex
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha224_hex);
+    # hmac_sha224_base64
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha224_base64);
+    # hmac_sha256
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha256);
+    # hmac_sha256_hex
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha256_hex);
+    # hmac_sha256_base64
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha256_base64);
+    # hmac_sha384
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha384);
+    # hmac_sha384_hex
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha384_hex);
+    # hmac_sha384_base64
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha384_base64);
+    # hmac_sha512
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha512);
+    # hmac_sha512_hex
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha512_hex);
+    # hmac_sha512_base64
+    ok(SPVM::TestCase::Digest::SHA->hmac_sha512_base64);
     
   }
 }

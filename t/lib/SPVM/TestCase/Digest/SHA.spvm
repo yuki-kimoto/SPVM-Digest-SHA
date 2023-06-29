@@ -290,4 +290,148 @@ class TestCase::Digest::SHA {
     return 1;
   }
 
+  static method hmac_sha224 : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha224(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha224_hex : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha224_hex(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha224_base64 : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha224_base64(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha256 : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha256(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha256_hex : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha256_hex(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha256_base64 : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha256_base64(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha384 : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha384(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha384_hex : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha384_hex(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha384_base64 : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha384_base64(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha512 : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha512(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha512_hex : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha512_hex(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
+  static method hmac_sha512_base64 : int() {
+    # Exception
+    {
+      eval { Digest::SHA->hmac_sha512_base64(undef,""); };
+      unless (Fn->contains($@, "The input data must be defined")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
 }
