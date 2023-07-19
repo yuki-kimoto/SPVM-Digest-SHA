@@ -108,6 +108,10 @@ my $start_memory_blocks_count = $api->get_memory_blocks_count();
     ok(SPVM::TestCase::Digest::SHA->hmac_sha512256_base64);
     
   }
+  # Instance Method
+  {
+    ok(SPVM::TestCase::Digest::SHA->new);
+  }
 }
 
 # Version

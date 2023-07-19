@@ -506,4 +506,16 @@ class TestCase::Digest::SHA {
     return 1;
   }
 
+  static method new : int() {
+    # Exception
+    {
+      eval { Digest::SHA->new(100); };
+      unless (Fn->contains($@, "Can't initalize SHA state. The specified algorithm is 100")) {
+        return 0;
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+
 }
