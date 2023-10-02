@@ -3,6 +3,8 @@
     * Require SPVM 0.989047.
   [Exception Message Changes]
     * Improve English of exception messages.
+  [Internal Changes]
+    * Use new native APIs.
 0.061 2023-05-08
   [Prerequirement Changes]
     * SPVM 0.973+ is required.

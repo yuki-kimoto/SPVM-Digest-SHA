@@ -28,10 +28,10 @@ int32_t SPVM__Digest__SHA__new(SPVM_ENV* env, SPVM_VALUE* stack) {
   void* obj_self = env->new_object_by_name(env, stack, "Digest::SHA", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
-  SHA *state = env->new_memory_stack(env, stack, sizeof(SHA));
+  SHA *state = env->new_memory_block(env, stack, sizeof(SHA));
 
   if (!shainit(state, alg)) {
-    env->free_memory_stack(env, stack, state);
+    env->free_memory_block(env, stack, state);
     return env->die(env, stack, "The SHA state cannot be initalized. The specified algorithm is %d.", alg, __func__, FILE_NAME, __LINE__);
   }
   
@@ -58,7 +58,7 @@ int32_t SPVM__Digest__SHA__DESTROY(SPVM_ENV* env, SPVM_VALUE* stack) {
   SHA* state = env->get_pointer(env, stack, obj_state);
   assert(state);
   
-  env->free_memory_stack(env, stack, state);
+  env->free_memory_block(env, stack, state);
   
   return 0;
 }
@@ -378,7 +378,7 @@ int32_t SPVM__Digest__SHA__clone(SPVM_ENV* env, SPVM_VALUE* stack) {
   void* obj_self_clone = env->new_object_by_name(env, stack, "Digest::SHA", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
-  SHA* state_clone = env->new_memory_stack(env, stack, sizeof(SHA));
+  SHA* state_clone = env->new_memory_block(env, stack, sizeof(SHA));
   
   Copy(state, state_clone, 1, SHA);
 
