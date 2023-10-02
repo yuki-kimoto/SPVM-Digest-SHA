@@ -5,6 +5,8 @@
     * Improve English of exception messages.
   [Internal Changes]
     * Use new native APIs.
+  [Document Changes]
+    * Improve the formats of documents.
 0.061 2023-05-08
   [Prerequirement Changes]
     * SPVM 0.973+ is required.
