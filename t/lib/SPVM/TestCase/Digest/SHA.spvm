@@ -1,6 +1,7 @@
 class TestCase::Digest::SHA {
   use Fn;
   use Digest::SHA;
+  use StringBuffer;
 
   static method sha1 : int() {
     # Exception
@@ -374,6 +375,53 @@ class TestCase::Digest::SHA {
   }
 
   static method hmac_sha1_hex : int() {
+    # fips198.t
+    {
+      my $out = [
+              "4f4ca3d5d68ba7cc0a1208c9c61e9c5da0403c0a",
+              "0922d3405faa3d194f82a45830737d5cc6c75d24",
+              "bcf41eab8bb2d802f3d05caf7cb092ecf8d1a3aa",
+              "9ea886efe268dbecce420c7524df32e0751a2a26"
+      ];
+
+      my $data = [
+               "Sample #1",
+               "Sample #2",
+               "Sample #3",
+               "Sample #4"
+      ];
+
+      my $keys = ["","","",""];
+      my $join_buffer = StringBuffer->new;
+
+      for (my $i = 0x00; $i <= 0x3f; $i++) { $join_buffer->push_char($i); }
+      $keys->[0] = $join_buffer->to_string;
+
+      $join_buffer = StringBuffer->new;
+      for (my $i = 0x30; $i <= 0x43; $i++) { $join_buffer->push_char($i); }
+      $keys->[1] = $join_buffer->to_string;
+
+      $join_buffer = StringBuffer->new;
+      for (my $i = 0x50; $i <= 0xb3; $i++) { $join_buffer->push_char($i); }
+      $keys->[2] = $join_buffer->to_string;
+
+      $join_buffer = StringBuffer->new;
+      #for (my $i = 0x70; $i <= 0xa0; $i++) { $join_buffer->push(Fn->chr($i)); }
+      for (my $i = 0x70; $i <= 0xa0; $i++) { $join_buffer->push_char($i); }
+      $keys->[3] = $join_buffer->to_string;
+
+      my $ok = 1;
+      for (my $i = 0; $i < @$keys; $i++) {
+        unless ( Digest::SHA->hmac_sha1_hex($data->[$i], $keys->[$i]) eq $out->[$i] ) {
+          $ok = 0;
+        }
+      }
+
+      unless($ok) {
+        return 0;
+      }
+
+    }
     # Exception
     {
       eval { Digest::SHA->hmac_sha1_hex(undef,""); };
