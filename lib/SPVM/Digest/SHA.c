@@ -55,10 +55,13 @@ int32_t SPVM__Digest__SHA__DESTROY(SPVM_ENV* env, SPVM_VALUE* stack) {
   void* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
-  SHA* state = env->get_pointer(env, stack, obj_state);
-  assert(state);
-  
-  env->free_memory_block(env, stack, state);
+  if (obj_state) {
+    SHA* state = env->get_pointer(env, stack, obj_state);
+    
+    assert(state);
+    
+    env->free_memory_block(env, stack, state);
+  }
   
   return 0;
 }
