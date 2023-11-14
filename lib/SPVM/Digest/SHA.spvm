@@ -97,6 +97,8 @@ class Digest::SHA {
   native static method new : Digest::SHA ($alg : int);
   
   # Instance methods
+  native method DESTROY : void ();
+  
   native method hashsize : int ();
   
   native method algorithm : int ();
