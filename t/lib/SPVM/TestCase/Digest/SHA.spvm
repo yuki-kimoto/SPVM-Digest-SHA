@@ -721,6 +721,13 @@ class TestCase::Digest::SHA {
   }
 
   static method new : int() {
+    {
+      my $sha = Digest::SHA->new(1);
+
+      unless ($sha is_type Digest::SHA) {
+        return 0;
+      }
+    }
     # Exception
     {
       eval { Digest::SHA->new(100); };
@@ -732,4 +739,17 @@ class TestCase::Digest::SHA {
     return 1;
   }
 
+  # Instance Methods
+  static method add : int() {
+    {
+      my $input = "abc";
+      my $sha = Digest::SHA->new(1);
+      $sha->add($input);
+      my $output = $sha->b64digest;
+      unless ($output eq "qZk+NkcGgWq6PiVxeFDCbJzQ2J0") {
+        return 0;
+      }
+    }
+    return 1;
+  }
 }
