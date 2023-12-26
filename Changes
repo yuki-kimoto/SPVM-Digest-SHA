@@ -1,3 +1,7 @@
+0.063 2023-12-26
+  [Bug Fix]
+    * Fix the bug that FILE_NAME in native source file does not have the file scope.
+    
 0.062 2023-11-14
   [Bug Fix]
     * Fix the bug that DESTROY is not called.
