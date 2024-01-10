@@ -113,6 +113,8 @@ my $start_memory_blocks_count = $api->get_memory_blocks_count();
   # Instance Method
   {
     ok(SPVM::TestCase::Digest::SHA->add);
+    ok(SPVM::TestCase::Digest::SHA->clone);
+    ok(SPVM::TestCase::Digest::SHA->hexdigest);
     ok(SPVM::TestCase::Digest::SHA->b64digest);
   }
 }
