@@ -752,4 +752,33 @@ class TestCase::Digest::SHA {
     }
     return 1;
   }
+
+  # Instance Methods
+  static method b64digest : int() {
+    # my_base64_oo.t
+    {
+      my $input = "abc";
+      my $alg = [1, 224, 256, 384, 512];
+      my $out = [
+        "qZk+NkcGgWq6PiVxeFDCbJzQ2J0",
+        "Iwl9IjQF2CKGQqR3vaJVsyqtvOS9oLP342ydpw",
+        "ungWv48Bz+pBQUDeXa4iI7ADYaOWF3qctBD/YfIAFa0",
+        "ywB1P0WjXou1oD1pmsZQBycsMqsO3tFjGotgWkP/W+2AhgcroefMI1i67KE0yCWn",
+        "3a81oZNherrMQXNJriBBMRLm+k6JqX6iCp7u5ktV05ohkpkqJ0/BqDa6PCOj/uu9RU1EI2Q86A4qmslPpUyknw"
+      ];
+
+      my $ok = 1;
+      for (my $i = 0; $i < @$alg; $i++) {
+        my $sha = Digest::SHA->new($alg->[$i]);
+        $sha->add($input);
+        unless ($sha->b64digest eq  $out->[$i]) {
+          $ok = 0;
+        }
+      }
+      unless($ok) {
+        return 0;
+      }
+      return 1;
+    }
+  }
 }
