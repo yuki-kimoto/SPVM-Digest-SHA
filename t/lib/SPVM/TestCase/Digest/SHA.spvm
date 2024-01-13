@@ -833,6 +833,29 @@ class TestCase::Digest::SHA {
         }
       }
     }
+    # my_sha256.t
+    {
+      my $input = [
+        "abc",
+        "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq",
+        Fn->repeat("a", 1000000)
+      ];
+      my $alg = 256;
+      my $out = [
+        "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+        "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1",
+        "cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0"
+      ];
+
+      my $ok = 1;
+      for (my $i = 0; $i < @$input; $i++) {
+        my $sha = Digest::SHA->new($alg);
+        $sha->add($input->[$i]);
+        unless ($sha->hexdigest eq $out->[$i]) {
+          return 0;
+        }
+      }
+    }
     return 1;
   }
 
