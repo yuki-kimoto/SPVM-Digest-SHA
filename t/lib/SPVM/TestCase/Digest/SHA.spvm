@@ -810,7 +810,7 @@ class TestCase::Digest::SHA {
         }
       }
     }
-    # my_sha224.t
+    # my_sha224_oo.t
     {
       my $input = [
         "abc",
@@ -833,7 +833,7 @@ class TestCase::Digest::SHA {
         }
       }
     }
-    # my_sha256.t
+    # my_sha256_oo.t
     {
       my $input = [
         "abc",
@@ -845,6 +845,29 @@ class TestCase::Digest::SHA {
         "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
         "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1",
         "cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0"
+      ];
+
+      my $ok = 1;
+      for (my $i = 0; $i < @$input; $i++) {
+        my $sha = Digest::SHA->new($alg);
+        $sha->add($input->[$i]);
+        unless ($sha->hexdigest eq $out->[$i]) {
+          return 0;
+        }
+      }
+    }
+    # my_sha384.t
+    {
+      my $input = [
+        "abc",
+        "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu",
+        Fn->repeat("a", 1000000)
+      ];
+      my $alg = 384;
+      my $out = [
+        "cb00753f45a35e8bb5a03d699ac65007272c32ab0eded1631a8b605a43ff5bed8086072ba1e7cc2358baeca134c825a7",
+        "09330c33f71147e83d192fc782cd1b4753111b173b3b05d22fa08086e3b0f712fcc7c71a557e2db966c3e9fa91746039",
+        "9d0e1809716474cb086e834e310a4a1ced149e9c00f248527972cec5704c2a5b07b8b3dc38ecc4ebae97ddd87f3d8985"
       ];
 
       my $ok = 1;
