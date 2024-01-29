@@ -17,9 +17,11 @@ lib/SPVM/Digest/SHA.native/src/.gitkeep
 lib/SPVM/Digest/SHA.pm
 lib/SPVM/Digest/SHA.spvm
 lib/SPVM/Digest/SHA/State.spvm
+LICENSE
 Makefile.PL
 MANIFEST			This list of files
 MANIFEST.SKIP
+perl_impl/.gitignore
 perl_impl/Changes
 perl_impl/examples/dups
 perl_impl/lib/Digest/SHA.pm
@@ -67,6 +69,7 @@ t/allfcns.t
 t/base64.t
 t/bitbuf.t.disable
 t/bitorder.t.disable
+t/Digest-SHA.t
 t/fips180-4.t
 t/fips198.t
 t/gg.t.disable
@@ -96,5 +99,4 @@ t/sha384.t
 t/sha512.t
 t/state.t.disable
 t/unicode.t
-t/use_spvm_class.t
 t/woodbury.t
