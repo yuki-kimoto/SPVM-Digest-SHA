@@ -802,8 +802,8 @@ class TestCase::Digest::SHA {
       ];
 
       my $ok = 1;
+      my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
-        my $sha = Digest::SHA->new($alg);
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
           return 0;
@@ -825,8 +825,8 @@ class TestCase::Digest::SHA {
       ];
 
       my $ok = 1;
+      my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
-        my $sha = Digest::SHA->new($alg);
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
           return 0;
@@ -848,8 +848,8 @@ class TestCase::Digest::SHA {
       ];
 
       my $ok = 1;
+      my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
-        my $sha = Digest::SHA->new($alg);
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
           return 0;
@@ -871,8 +871,8 @@ class TestCase::Digest::SHA {
       ];
 
       my $ok = 1;
+      my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
-        my $sha = Digest::SHA->new($alg);
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
           return 0;
@@ -894,10 +894,48 @@ class TestCase::Digest::SHA {
       ];
 
       my $ok = 1;
+      my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
-        my $sha = Digest::SHA->new($alg);
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
+          return 0;
+        }
+      }
+    }
+    # nistbyte.t
+    {
+      my $input = [
+        "\x{24}",													# pack("B*", "00100100")
+        "\x{70}\x{F0}",												# pack("B*", "0111000011110000")
+        "\x{0E}\x{1E}\x{F0}",										# pack("B*", "000011100001111011110000")
+        "\x{08}\x{38}\x{78}\x{8F}",									# pack("B*", "00001000001110000111100010001111")
+        "\x{10}\x{3E}\x{08}\x{FC}\x{0F}",							# pack("B*", "0001000000111110000010001111110000001111")
+        "\x{E7}\x{C7}\x{1E}\x{07}\x{EF}\x{03}",						# pack("B*", "111001111100011100011110000001111110111100000011")
+        "\x{E0}\x{FB}\x{71}\x{F8}\x{F9}\x{C1}\x{FC}",				# pack("B*", "11100000111110110111000111111000111110011100000111111100")
+        "\x{FF}\x{7C}\x{60}\x{3C}\x{1F}\x{80}\x{E2}\x{07}",			# pack("B*", "1111111101111100011000000011110000011111100000001110001000000111")
+        "\x{F0}\x{3F}\x{C8}\x{60}\x{81}\x{FE}\x{01}\x{F8}\x{7F}",	# pack("B*", "111100000011111111001000011000001000000111111110000000011111100001111111")
+      ];
+      my $alg = 1;
+      my $out = [
+        "3CDF2936DA2FC556BFA533AB1EB59CE710AC80E5",
+        "19C1E2048FA7393CFBF2D310AD8209EC11D996E5",
+        "CA775D8C80FAA6F87FA62BECA6CA6089D63B56E5",
+        "71AC973D0E4B50AE9E5043FF4D615381120A25A0",
+        "A6B5B9F854CFB76701C3BDDBF374B3094EA49CBA",
+        "D87A0EE74E4B9AD72E6847C87BDEEB3D07844380",
+        "1976B8DD509FE66BF09C9A8D33534D4EF4F63BFD",
+        "5A78F439B6DB845BB8A558E4CEB106CD7B7FF783",
+        "F871BCE62436C1E280357416695EE2EF9B83695C"
+      ];
+
+      my $ok = 1;
+      my $sha = Digest::SHA->new($alg);
+      for (my $i = 0; $i < @$input; $i++) {
+        $sha->add($input->[$i]);
+        unless (Fn->uc($sha->hexdigest) eq $out->[$i]) {
+        print "input : " . $input->[$i] . "\n";
+        print "Fn->uc(hexdigest) : " . Fn->uc($sha->hexdigest) . "\n";
+        print "out               : " . $out->[$i] . "\n";
           return 0;
         }
       }
