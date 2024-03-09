@@ -16,6 +16,32 @@ class TestCase::Digest::SHA {
   }
 
   static method sha1_hex : int() {
+    # unicode.t
+    {
+      my $empty_unicode = "";
+      my $ok_unicode = "";
+
+      my $join_buffer = StringBuffer->new;
+      for (my $i = 0; $i <= 255; $i++) { $join_buffer->push_char($i); }
+      $ok_unicode = $join_buffer->to_string;
+
+      my $input = [
+        $empty_unicode . "abc",
+        $ok_unicode
+      ];
+
+      my $out = [
+        "a9993e364706816aba3e25717850c26c9cd0d89d",
+        "4916d6bdb7f78e6803698cab32d1586ea457dfc8"
+      ];
+
+      for ( my $i = 0; $i < @$input; $i++) {
+        print Digest::SHA->sha1_hex($input->[$i]) . "\n";
+        unless ( Digest::SHA->sha1_hex($input->[$i]) eq $out->[$i]) {
+          return 0;
+        }
+      }
+    }
     # Exception
     {
       eval { Digest::SHA->sha1_hex(undef); };
