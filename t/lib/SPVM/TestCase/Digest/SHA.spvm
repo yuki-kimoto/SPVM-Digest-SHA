@@ -933,9 +933,6 @@ class TestCase::Digest::SHA {
       for (my $i = 0; $i < @$input; $i++) {
         $sha->add($input->[$i]);
         unless (Fn->uc($sha->hexdigest) eq $out->[$i]) {
-        print "input : " . $input->[$i] . "\n";
-        print "Fn->uc(hexdigest) : " . Fn->uc($sha->hexdigest) . "\n";
-        print "out               : " . $out->[$i] . "\n";
           return 0;
         }
       }
