@@ -18,6 +18,7 @@ class TestCase::Digest::SHA {
   static method sha1_hex : int() {
     # unicode.t
     {
+      my $ok = 1;
       my $empty_unicode = "";
       my $ok_unicode = "";
 
@@ -37,8 +38,11 @@ class TestCase::Digest::SHA {
 
       for ( my $i = 0; $i < @$input; $i++) {
         unless ( Digest::SHA->sha1_hex($input->[$i]) eq $out->[$i]) {
-          return 0;
+          $ok = 0;
         }
+      }
+      unless ($ok) {
+        return 0;
       }
     }
     # Exception
@@ -402,6 +406,7 @@ class TestCase::Digest::SHA {
   static method hmac_sha1_hex : int() {
     # fips198.t
     {
+      my $ok = 1;
       my $out = [
               "4f4ca3d5d68ba7cc0a1208c9c61e9c5da0403c0a",
               "0922d3405faa3d194f82a45830737d5cc6c75d24",
@@ -434,7 +439,6 @@ class TestCase::Digest::SHA {
       for (my $i = 0x70; $i <= 0xa0; $i++) { $join_buffer->push_char($i); }
       $keys->[3] = $join_buffer->to_string;
 
-      my $ok = 1;
       for (my $i = 0; $i < @$keys; $i++) {
         unless ( Digest::SHA->hmac_sha1_hex($data->[$i], $keys->[$i]) eq $out->[$i] ) {
           $ok = 0;
@@ -520,6 +524,7 @@ class TestCase::Digest::SHA {
   static method hmac_sha256_hex : int() {
     # hmacsha.t
     {
+      my $ok = 1;
       my $data = [
         "abc",
         "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq",
@@ -568,7 +573,6 @@ class TestCase::Digest::SHA {
         "6355ac22e890d0a3c8481a5ca4825bc884d3e7a1ff98a2fc2ac7d8e064c3b2e6"
       ];
 
-      my $ok = 1;
       for (my $i = 0; $i < @$keys; $i++) {
         unless (Digest::SHA->hmac_sha256_hex($data->[$i], $keys->[$i]) eq $out->[$i]) {
           $ok = 0;
@@ -899,11 +903,15 @@ class TestCase::Digest::SHA {
   # Instance Methods
   static method add : int() {
     {
+      my $ok = 1;
       my $input = "abc";
       my $sha = Digest::SHA->new(1);
       $sha->add($input);
       my $output = $sha->b64digest;
       unless ($output eq "qZk+NkcGgWq6PiVxeFDCbJzQ2J0") {
+        $ok = 0;
+      }
+      unless($ok) {
         return 0;
       }
     }
@@ -914,6 +922,7 @@ class TestCase::Digest::SHA {
   static method clone : int() {
     # my_clone.t
     {
+      my $ok = 1;
       my $input = [
         "abc",
         "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu",
@@ -926,17 +935,19 @@ class TestCase::Digest::SHA {
         "e718483d0ce769644e2e42c7bc15b4638e1f98b13b2044285632a803afa973ebde0ff244877ea60a4cb0432ce577c31beb009c5c2c49aa2e4eadb217ad8cc09b"
       ];
 
-      my $ok = 1;
       for (my $i = 0; $i < @$input; $i++) {
         my $sha = Digest::SHA->new($alg);
         my $sha_clone = $sha->clone;
         if ($sha == $sha_clone) {
-          return 0;
+          $ok = 0;
         }
         $sha_clone->add($input->[$i]);
         unless ($sha_clone->hexdigest eq $out->[$i]) {
-          return 0;
+          $ok = 0;
         }
+      }
+      unless($ok) {
+        return 0;
       }
     }
     return 1;
@@ -946,6 +957,7 @@ class TestCase::Digest::SHA {
   static method hexdigest : int() {
     # my_sha1_oo.t
     {
+      my $ok = 1;
       my $input = [
         "abc",
         "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq",
@@ -958,17 +970,20 @@ class TestCase::Digest::SHA {
         "34aa973cd4c4daa4f61eeb2bdbad27316534016f"
       ];
 
-      my $ok = 1;
       my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
-          return 0;
+          $ok = 0;
         }
+      }
+      unless($ok) {
+        return 0;
       }
     }
     # my_sha224_oo.t
     {
+      my $ok = 1;
       my $input = [
         "abc",
         "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq",
@@ -981,17 +996,20 @@ class TestCase::Digest::SHA {
         "20794655980c91d8bbb4c1ea97618a4bf03f42581948b2ee4ee7ad67"
       ];
 
-      my $ok = 1;
       my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
-          return 0;
+          $ok = 0;
         }
+      }
+      unless($ok) {
+        return 0;
       }
     }
     # my_sha256_oo.t
     {
+      my $ok = 1;
       my $input = [
         "abc",
         "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq",
@@ -1004,17 +1022,20 @@ class TestCase::Digest::SHA {
         "cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0"
       ];
 
-      my $ok = 1;
       my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
-          return 0;
+          $ok = 0;
         }
+      }
+      unless($ok) {
+        return 0;
       }
     }
     # my_sha384_oo.t
     {
+      my $ok = 1;
       my $input = [
         "abc",
         "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu",
@@ -1027,17 +1048,20 @@ class TestCase::Digest::SHA {
         "9d0e1809716474cb086e834e310a4a1ced149e9c00f248527972cec5704c2a5b07b8b3dc38ecc4ebae97ddd87f3d8985"
       ];
 
-      my $ok = 1;
       my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
-          return 0;
+          $ok = 0;
         }
+      }
+      unless($ok) {
+        return 0;
       }
     }
     # my_sha512_oo.t
     {
+      my $ok = 1;
       my $input = [
         "abc",
         "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu",
@@ -1050,17 +1074,20 @@ class TestCase::Digest::SHA {
         "e718483d0ce769644e2e42c7bc15b4638e1f98b13b2044285632a803afa973ebde0ff244877ea60a4cb0432ce577c31beb009c5c2c49aa2e4eadb217ad8cc09b"
       ];
 
-      my $ok = 1;
       my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
         $sha->add($input->[$i]);
         unless ($sha->hexdigest eq $out->[$i]) {
-          return 0;
+          $ok = 0;
         }
+      }
+      unless($ok) {
+        return 0;
       }
     }
     # nistbyte.t
     {
+      my $ok = 1;
       my $input = [
         "\x{24}",					# pack("B*", "00100100")
         "\x{70}\x{F0}",					# pack("B*", "0111000011110000")
@@ -1085,13 +1112,15 @@ class TestCase::Digest::SHA {
         "F871BCE62436C1E280357416695EE2EF9B83695C"
       ];
 
-      my $ok = 1;
       my $sha = Digest::SHA->new($alg);
       for (my $i = 0; $i < @$input; $i++) {
         $sha->add($input->[$i]);
         unless (Fn->uc($sha->hexdigest) eq $out->[$i]) {
-          return 0;
+          $ok = 0;
         }
+      }
+      unless($ok) {
+        return 0;
       }
     }
     return 1;
@@ -1101,6 +1130,7 @@ class TestCase::Digest::SHA {
   static method b64digest : int() {
     # my_base64_oo.t
     {
+      my $ok = 1;
       my $input = "abc";
       my $alg = [1, 224, 256, 384, 512];
       my $out = [
@@ -1111,7 +1141,6 @@ class TestCase::Digest::SHA {
         "3a81oZNherrMQXNJriBBMRLm+k6JqX6iCp7u5ktV05ohkpkqJ0/BqDa6PCOj/uu9RU1EI2Q86A4qmslPpUyknw"
       ];
 
-      my $ok = 1;
       for (my $i = 0; $i < @$alg; $i++) {
         my $sha = Digest::SHA->new($alg->[$i]);
         $sha->add($input);
