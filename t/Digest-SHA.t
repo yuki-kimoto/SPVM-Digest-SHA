@@ -106,11 +106,16 @@ my $start_memory_blocks_count = $api->get_memory_blocks_count();
     ok(SPVM::TestCase::Digest::SHA->hmac_sha512256_hex);
     # hmac_sha512256_base64
     ok(SPVM::TestCase::Digest::SHA->hmac_sha512256_base64);
+    # new
+    ok(SPVM::TestCase::Digest::SHA->new);
     
   }
   # Instance Method
   {
-    ok(SPVM::TestCase::Digest::SHA->new);
+    ok(SPVM::TestCase::Digest::SHA->add);
+    ok(SPVM::TestCase::Digest::SHA->clone);
+    ok(SPVM::TestCase::Digest::SHA->hexdigest);
+    ok(SPVM::TestCase::Digest::SHA->b64digest);
   }
 }
 
