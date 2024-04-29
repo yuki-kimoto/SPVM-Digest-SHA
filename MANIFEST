@@ -1,0 +1,27 @@
+.gitattributes
+.github/workflows/linux-ubuntu-latest-32bit.yml
+.github/workflows/linux-ubuntu-latest-perl-5.8.9.yml
+.github/workflows/linux-ubuntu-latest.yml
+.github/workflows/macos-latest.yml
+.github/workflows/windows-2019.yml
+.github/workflows/windows-latest.yml
+.gitignore
+Changes
+lib/SPVM/Digest/SHA.c
+lib/SPVM/Digest/SHA.config
+lib/SPVM/Digest/SHA.native/include/.gitkeep
+lib/SPVM/Digest/SHA.native/include/SPVM__Digest__SHA__sha.c
+lib/SPVM/Digest/SHA.native/include/SPVM__Digest__SHA__sha.h
+lib/SPVM/Digest/SHA.native/include/SPVM__Digest__SHA__sha64bit.c
+lib/SPVM/Digest/SHA.native/include/SPVM__Digest__SHA__sha64bit.h
+lib/SPVM/Digest/SHA.native/src/.gitkeep
+lib/SPVM/Digest/SHA.pm
+lib/SPVM/Digest/SHA.spvm
+lib/SPVM/Digest/SHA/State.spvm
+LICENSE
+Makefile.PL
+MANIFEST			This list of files
+MANIFEST.SKIP
+README.md
+t/Digest-SHA.t
+t/lib/SPVM/TestCase/Digest/SHA.spvm
