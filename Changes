@@ -1,7 +1,7 @@
 0.064 2024-04-29
   [Test Improvement]
     * Add SPVM tests.
-    
+    * Remove unneeded Perl tests.
 0.063 2023-12-26
   [Bug Fix]
     * Fix the bug that FILE_NAME in native source file does not have the file scope.
