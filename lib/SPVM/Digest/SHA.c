@@ -6,7 +6,7 @@
 #include <string.h>
 #include <assert.h>
 
-static const char* FILE_NAME = "SPVM/Digest/SHA.c";
+static const char* FILE_NAME = "Digest/SHA.c";
 
 #define Copy(src, dest, nitems, type) memcpy(dest, src, (nitems) * sizeof(type))
 #define Zero(dest, nitems, type) memset(dest, 0, (nitems) * sizeof(type))
