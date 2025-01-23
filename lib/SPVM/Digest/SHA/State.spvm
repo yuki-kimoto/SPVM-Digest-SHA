@@ -1,1 +1,3 @@
-class Digest::SHA::State : pointer;
+class Digest::SHA::State : pointer {
+  version_from Digest::SHA;
+}

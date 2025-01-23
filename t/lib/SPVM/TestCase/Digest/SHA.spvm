@@ -11,7 +11,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -52,7 +52,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -79,7 +79,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -91,7 +91,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -103,7 +103,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -130,7 +130,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -142,7 +142,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -154,7 +154,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -181,7 +181,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -193,7 +193,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -205,7 +205,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -232,7 +232,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -244,7 +244,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -256,7 +256,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -283,7 +283,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -295,7 +295,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -323,7 +323,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -335,7 +335,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -347,7 +347,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -375,7 +375,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -387,7 +387,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -399,7 +399,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -457,7 +457,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -469,7 +469,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -481,7 +481,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -493,7 +493,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -505,7 +505,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -517,7 +517,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -633,7 +633,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -645,7 +645,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -657,7 +657,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -713,7 +713,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -725,7 +725,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -737,7 +737,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -793,7 +793,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -805,7 +805,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -817,7 +817,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -829,7 +829,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -841,7 +841,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -853,7 +853,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -865,7 +865,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -877,7 +877,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -896,7 +896,7 @@ class TestCase::Digest::SHA {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
