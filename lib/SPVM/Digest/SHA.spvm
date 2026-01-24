@@ -2,7 +2,7 @@
 # MIT License
 
 class Digest::SHA {
-  version "0.065";
+  version "0.066";
   
   use Digest::SHA::State;
   

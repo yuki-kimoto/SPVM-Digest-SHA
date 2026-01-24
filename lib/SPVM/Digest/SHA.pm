@@ -1,6 +1,6 @@
 package SPVM::Digest::SHA;
 
-our $VERSION = "0.065";
+our $VERSION = "0.066";
 
 1;
 
