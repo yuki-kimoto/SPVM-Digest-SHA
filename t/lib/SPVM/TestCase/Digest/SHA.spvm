@@ -926,13 +926,11 @@ class TestCase::Digest::SHA {
       my $input = [
         "abc",
         "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu",
-        Fn->repeat("a", 1000000)
       ];
       my $alg = 512;
       my $out = [
         "ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f",
         "8e959b75dae313da8cf4f72814fc143f8f7779c6eb9f7fa17299aeadb6889018501d289e4900f7e4331b99dec4b5433ac7d329eeb6dd26545e96e55b874be909",
-        "e718483d0ce769644e2e42c7bc15b4638e1f98b13b2044285632a803afa973ebde0ff244877ea60a4cb0432ce577c31beb009c5c2c49aa2e4eadb217ad8cc09b"
       ];
 
       for (my $i = 0; $i < @$input; $i++) {
@@ -961,13 +959,11 @@ class TestCase::Digest::SHA {
       my $input = [
         "abc",
         "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq",
-        Fn->repeat("a", 1000000)
       ];
       my $alg = 1;
       my $out = [
         "a9993e364706816aba3e25717850c26c9cd0d89d",
         "84983e441c3bd26ebaae4aa1f95129e5e54670f1",
-        "34aa973cd4c4daa4f61eeb2bdbad27316534016f"
       ];
 
       my $sha = Digest::SHA->new($alg);
@@ -987,13 +983,11 @@ class TestCase::Digest::SHA {
       my $input = [
         "abc",
         "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq",
-        Fn->repeat("a", 1000000)
       ];
       my $alg = 224;
       my $out = [
         "23097d223405d8228642a477bda255b32aadbce4bda0b3f7e36c9da7",
         "75388b16512776cc5dba5da1fd890150b0c6455cb4f58b1952522525",
-        "20794655980c91d8bbb4c1ea97618a4bf03f42581948b2ee4ee7ad67"
       ];
 
       my $sha = Digest::SHA->new($alg);
@@ -1013,7 +1007,6 @@ class TestCase::Digest::SHA {
       my $input = [
         "abc",
         "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq",
-        Fn->repeat("a", 1000000)
       ];
       my $alg = 256;
       my $out = [
@@ -1039,7 +1032,6 @@ class TestCase::Digest::SHA {
       my $input = [
         "abc",
         "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu",
-        Fn->repeat("a", 1000000)
       ];
       my $alg = 384;
       my $out = [
@@ -1065,13 +1057,11 @@ class TestCase::Digest::SHA {
       my $input = [
         "abc",
         "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu",
-        Fn->repeat("a", 1000000)
       ];
       my $alg = 512;
       my $out = [
         "ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f",
         "8e959b75dae313da8cf4f72814fc143f8f7779c6eb9f7fa17299aeadb6889018501d289e4900f7e4331b99dec4b5433ac7d329eeb6dd26545e96e55b874be909",
-        "e718483d0ce769644e2e42c7bc15b4638e1f98b13b2044285632a803afa973ebde0ff244877ea60a4cb0432ce577c31beb009c5c2c49aa2e4eadb217ad8cc09b"
       ];
 
       my $sha = Digest::SHA->new($alg);

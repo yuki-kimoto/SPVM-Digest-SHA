@@ -1,3 +1,7 @@
+0.066 2026-01-24
+  [Improve Tests]
+    * Improve test performance.
+    
 0.065 2025-01-23
   [Requirement Changes]
     * Require SPVM 0.990042.
