@@ -32,7 +32,7 @@ int32_t SPVM__Digest__SHA__new(SPVM_ENV* env, SPVM_VALUE* stack) {
 
   if (!shainit(state, alg)) {
     env->free_memory_block(env, stack, state);
-    return env->die_v2(env, stack, "The SHA state cannot be initalized. The specified algorithm is %d.", __func__, FILE_NAME, __LINE__, alg);
+    return env->die(env, stack, "The SHA state cannot be initalized. The specified algorithm is %d.", __func__, FILE_NAME, __LINE__, alg);
   }
   
   void* obj_state = env->new_object_by_name(env, stack, "Digest::SHA::State", &e, __func__, FILE_NAME, __LINE__);
@@ -77,14 +77,14 @@ static int32_t SPVM__Digest__SHA__sha(SPVM_ENV* env, SPVM_VALUE* stack) {
   void* obj_data = stack[0].oval;
   
   if (!obj_data) {
-    return env->die_v2(env, stack, "$data must be defined.", __func__, FILE_NAME, __LINE__);
+    return env->die(env, stack, "$data must be defined.", __func__, FILE_NAME, __LINE__);
   }
 
   int32_t ix = stack[1].ival;
 
   int32_t alg = ix2alg[ix];
   if (!shainit(&sha, alg)) {
-    return env->die_v2(env, stack, "The SHA state cannot be initalized. The specified algorithm is %d.", __func__, FILE_NAME, __LINE__, alg);
+    return env->die(env, stack, "The SHA state cannot be initalized. The specified algorithm is %d.", __func__, FILE_NAME, __LINE__, alg);
   }
 
   data = (unsigned char *)env->get_chars(env, stack, obj_data);
@@ -172,7 +172,7 @@ static int32_t SPVM__Digest__SHA__hmac_sha(SPVM_ENV* env, SPVM_VALUE* stack) {
   void* obj_data = stack[0].oval;
   
   if (!obj_data) {
-    return env->die_v2(env, stack, "$data must be defined.", __func__, FILE_NAME, __LINE__);
+    return env->die(env, stack, "$data must be defined.", __func__, FILE_NAME, __LINE__);
   }
   data = (unsigned char *)env->get_chars(env, stack, obj_data);
 
@@ -186,7 +186,7 @@ static int32_t SPVM__Digest__SHA__hmac_sha(SPVM_ENV* env, SPVM_VALUE* stack) {
   int32_t ix = stack[2].ival;
   int32_t alg = ix2alg[ix];
   if (hmacinit(&hmac, alg, key, (unsigned int) len) == NULL) {
-    return env->die_v2(env, stack, "HMAC cannot be initalized. The specified algorithm is %d.", __func__, FILE_NAME, __LINE__, alg);
+    return env->die(env, stack, "HMAC cannot be initalized. The specified algorithm is %d.", __func__, FILE_NAME, __LINE__, alg);
   }
   len = env->length(env, stack, obj_data);
   while (len > MAX_WRITE_SIZE) {
