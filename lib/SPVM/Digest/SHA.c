@@ -25,7 +25,7 @@ int32_t SPVM__Digest__SHA__new(SPVM_ENV* env, SPVM_VALUE* stack) {
   
   int32_t alg = stack[0].ival;
   
-  void* obj_self = env->new_object_by_name(env, stack, "Digest::SHA", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_self = env->new_object_by_name(env, stack, "Digest::SHA", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
   SHA *state = env->new_memory_block(env, stack, sizeof(SHA));
@@ -35,7 +35,7 @@ int32_t SPVM__Digest__SHA__new(SPVM_ENV* env, SPVM_VALUE* stack) {
     return env->die(env, stack, "The SHA state cannot be initalized. The specified algorithm is %d.", __func__, FILE_NAME, __LINE__, alg);
   }
   
-  void* obj_state = env->new_object_by_name(env, stack, "Digest::SHA::State", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_state = env->new_object_by_name(env, stack, "Digest::SHA::State", &e, __func__, FILE_NAME, __LINE__);
   
   env->set_pointer(env, stack, obj_state, state);
   
@@ -50,9 +50,9 @@ int32_t SPVM__Digest__SHA__new(SPVM_ENV* env, SPVM_VALUE* stack) {
 int32_t SPVM__Digest__SHA__DESTROY(SPVM_ENV* env, SPVM_VALUE* stack) {
   int32_t e;
   
-  void* obj_self = stack[0].oval;
+  SPVM_OBJ* obj_self = stack[0].oval;
   
-  void* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
   if (obj_state) {
@@ -74,7 +74,7 @@ static int32_t SPVM__Digest__SHA__sha(SPVM_ENV* env, SPVM_VALUE* stack) {
   SHA sha;
   char *result;
 
-  void* obj_data = stack[0].oval;
+  SPVM_OBJ* obj_data = stack[0].oval;
   
   if (!obj_data) {
     return env->die(env, stack, "$data must be defined.", __func__, FILE_NAME, __LINE__);
@@ -111,7 +111,7 @@ static int32_t SPVM__Digest__SHA__sha(SPVM_ENV* env, SPVM_VALUE* stack) {
     result = shabase64(&sha);
   }
 
-  void* obj_result = env->new_string(env, stack, result, len > 0 ? len : strlen(result));
+  SPVM_OBJ* obj_result = env->new_string(env, stack, result, len > 0 ? len : strlen(result));
   
   stack[0].oval = obj_result;
   return 0;
@@ -169,14 +169,14 @@ static int32_t SPVM__Digest__SHA__hmac_sha(SPVM_ENV* env, SPVM_VALUE* stack) {
   HMAC hmac;
   char *result;
   
-  void* obj_data = stack[0].oval;
+  SPVM_OBJ* obj_data = stack[0].oval;
   
   if (!obj_data) {
     return env->die(env, stack, "$data must be defined.", __func__, FILE_NAME, __LINE__);
   }
   data = (unsigned char *)env->get_chars(env, stack, obj_data);
 
-  void* obj_key = stack[1].oval;
+  SPVM_OBJ* obj_key = stack[1].oval;
   
   if (obj_key) {
     key = (unsigned char *)env->get_chars(env, stack, obj_key);
@@ -209,7 +209,7 @@ static int32_t SPVM__Digest__SHA__hmac_sha(SPVM_ENV* env, SPVM_VALUE* stack) {
   }
   
   
-  void* obj_result = env->new_string(env, stack, result, len > 0 ? len : strlen(result));
+  SPVM_OBJ* obj_result = env->new_string(env, stack, result, len > 0 ? len : strlen(result));
   
   stack[0].oval = obj_result;
   return 0;
@@ -263,9 +263,9 @@ int32_t SPVM__Digest__SHA__hmac_sha512256_base64(SPVM_ENV* env, SPVM_VALUE* stac
 int32_t SPVM__Digest__SHA__hashsize(SPVM_ENV* env, SPVM_VALUE* stack) {
   int32_t e;
   
-  void* obj_self = stack[0].oval;
+  SPVM_OBJ* obj_self = stack[0].oval;
   
-  void* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
   SHA* state = env->get_pointer(env, stack, obj_state);
@@ -280,9 +280,9 @@ int32_t SPVM__Digest__SHA__hashsize(SPVM_ENV* env, SPVM_VALUE* stack) {
 int32_t SPVM__Digest__SHA__algorithm(SPVM_ENV* env, SPVM_VALUE* stack) {
   int32_t e;
   
-  void* obj_self = stack[0].oval;
+  SPVM_OBJ* obj_self = stack[0].oval;
   
-  void* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
   SHA* state = env->get_pointer(env, stack, obj_state);
@@ -301,12 +301,12 @@ int32_t SPVM__Digest__SHA__add(SPVM_ENV* env, SPVM_VALUE* stack) {
   
   int32_t e;
   
-  void* obj_self = stack[0].oval;
+  SPVM_OBJ* obj_self = stack[0].oval;
   
-  void* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
-  void* obj_data = stack[1].oval;
+  SPVM_OBJ* obj_data = stack[1].oval;
   
   data = (unsigned char *)env->get_chars(env, stack, obj_data);
   len = env->length(env, stack, obj_data);
@@ -333,9 +333,9 @@ static int32_t SPVM__Digest__SHA__digest_common(SPVM_ENV* env, SPVM_VALUE* stack
   int32_t len;
   char *result;
   
-  void* obj_self = stack[0].oval;
+  SPVM_OBJ* obj_self = stack[0].oval;
   
-  void* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
   SHA* state = env->get_pointer(env, stack, obj_state);
@@ -355,7 +355,7 @@ static int32_t SPVM__Digest__SHA__digest_common(SPVM_ENV* env, SPVM_VALUE* stack
     result = shabase64(state);
   }
   
-  void* obj_result = env->new_string(env, stack, result, len > 0 ? len : strlen(result));
+  SPVM_OBJ* obj_result = env->new_string(env, stack, result, len > 0 ? len : strlen(result));
   
   stack[0].oval = obj_result;
   
@@ -371,21 +371,21 @@ int32_t SPVM__Digest__SHA__b64digest(SPVM_ENV* env, SPVM_VALUE* stack) { stack[1
 int32_t SPVM__Digest__SHA__clone(SPVM_ENV* env, SPVM_VALUE* stack) {
   int32_t e;
   
-  void* obj_self = stack[0].oval;
+  SPVM_OBJ* obj_self = stack[0].oval;
 
-  void* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_state = env->get_field_object_by_name(env, stack, obj_self, "state", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
   SHA* state = env->get_pointer(env, stack, obj_state);
 
-  void* obj_self_clone = env->new_object_by_name(env, stack, "Digest::SHA", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_self_clone = env->new_object_by_name(env, stack, "Digest::SHA", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
   SHA* state_clone = env->new_memory_block(env, stack, sizeof(SHA));
   
   Copy(state, state_clone, 1, SHA);
 
-  void* obj_state_clone = env->new_object_by_name(env, stack, "Digest::SHA::State", &e, __func__, FILE_NAME, __LINE__);
+  SPVM_OBJ* obj_state_clone = env->new_object_by_name(env, stack, "Digest::SHA::State", &e, __func__, FILE_NAME, __LINE__);
   if (e) { return e; }
   
   env->set_pointer(env, stack, obj_state_clone, state_clone);
