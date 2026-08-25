@@ -1,6 +1,6 @@
 package SPVM::Digest::SHA;
 
-our $VERSION = "0.071";
+our $VERSION = "0.072";
 
 1;
 
@@ -10,7 +10,7 @@ SPVM::Digest::SHA - SHA-1/224/256/384/512
 
 =head1 Description
 
-The SPVM::Digest::SHA of L<SPVM> has methods for SHA-1/224/256/384/512.
+Digest::SHA in L<SPVM> calculates SHA-1/224/256/384/512.
 
 =head1 Usage
 
