@@ -1,15 +1,12 @@
 use strict;
 use warnings;
 use FindBin;
-use lib "$FindBin::Bin/lib";
+use lib "t/lib";
 
 use Test::More;
 
-BEGIN { $ENV{SPVM_BUILD_DIR} = "$FindBin::Bin/.spvm_build"; }
-
 use SPVM 'TestCase::Digest::SHA';
 
-use SPVM 'Fn';
 use SPVM::Digest::SHA;
 use SPVM 'Digest::SHA';
 
@@ -121,10 +118,10 @@ my $start_memory_blocks_count = $api->get_memory_blocks_count();
 
 # Version
 {
-  is($SPVM::Digest::SHA::VERSION, SPVM::Fn->get_version_string('Digest::SHA'));
+  is($SPVM::Digest::SHA::VERSION, $api->get_version_string('Digest::SHA'));
 }
 
-SPVM::Fn->destroy_runtime_permanent_vars;
+$api->destroy_runtime_permanent_vars;
 
 # All object is freed
 my $end_memory_blocks_count = $api->get_memory_blocks_count;
